@@ -54,7 +54,7 @@ jobs:
     - name: Build and Push Docker images
       run: |
         docker-compose build
-        docker tag lms-fullstack-backend ${{ secrets.DOCKER_USERNAME }}/lms-backend:latest
-        docker tag lms-fullstack-frontend ${{ secrets.DOCKER_USERNAME }}/lms-frontend:latest
+        docker tag lms-fullstack-main-backend ${{ secrets.DOCKER_USERNAME }}/lms-backend:latest
+        docker tag lms-fullstack-main-frontend ${{ secrets.DOCKER_USERNAME }}/lms-frontend:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/lms-backend:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/lms-frontend:latest
