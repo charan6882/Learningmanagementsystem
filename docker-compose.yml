@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    container_name: lms-backend
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+    networks:
+      - lms-net
+
+  frontend:
+    build: ./frontend
+    container_name: lms-frontend
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+    networks:
+      - lms-net
+
+networks:
+  lms-net:
+    driver: bridge
